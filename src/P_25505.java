@@ -1,7 +1,7 @@
 import java.util.*;
 
 // https://www.acmicpc.net/problem/25505
-public class Main {
+public class P_25505 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
