@@ -1,25 +1,28 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String input = scanner.nextLine();
-        String[] split = input.split(" ");
+        final int target = Integer.parseInt(reader.readLine());
+        int level = 1;
+        int values = 1;
+        int leveling = 0;
 
-        int a = Integer.parseInt(split[0]);
-        int b = Integer.parseInt(split[1]);
-        int c = Integer.parseInt(split[2]);
-
-        if (a == b && b == c) {
-            System.out.println(10000 + a * 1000);
-        } else if (a == b && b != c) {
-            System.out.println(1000 + a * 100);
-        } else if (b == c && a != c) {
-            System.out.println(1000 + b * 100);
+        if ( target == 1 ) {
+            writer.write("1\n");
         } else {
-            int max = Math.max(Math.max(a, b), c);
-            System.out.println(max * 100);
+            while (target > values) {
+                level++;
+                leveling += 6;
+                values += leveling;
+            }
+
+            writer.write(level + "\n");
         }
+
+        reader.close();
+        writer.close();
     }
 }
